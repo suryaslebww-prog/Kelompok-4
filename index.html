@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan Rahasia</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container{
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    h1{
+      color: #333;
+    }
+
+    input{
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button{
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2575fc;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover{
+      background: #1259d6;
+    }
+
+    .hasil{
+      margin-top: 20px;
+      padding: 10px;
+      background: #f2f2f2;
+      border-radius: 10px;
+      min-height: 40px;
+      font-size: 18px;
+    }
+
+    .pesan-asli{
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .error{
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🔒 Pesan Rahasia</h1>
+
+    <input type="text" id="pesan" placeholder="Tulis pesan rahasia...">
+
+    <button onclick="ubahPesan()">Ubah Jadi Kode</button>
+
+    <div class="hasil" id="hasilKode"></div>
+
+    <input type="password" id="kunci" placeholder="Masukkan Kata Kunci">
+
+    <button onclick="bukaPesan()">Buka Pesan</button>
+
+    <div class="pesan-asli" id="hasilAsli"></div>
+    <div class="error" id="error"></div>
+  </div>
+
+  <script>
+    let pesanAsli = "";
+    let kataKunci = "rahasia123";
+
+    const emoji = [
+      "😀","😂","😎","🤖","👻",
+      "🔥","🌙","⭐","💎","🎉",
+      "🐱","🍕","🚀","🔒","💡"
+    ];
+
+    function ubahPesan() {
+      pesanAsli = document.getElementById("pesan").value;
+
+      let hasil = "";
+
+      for(let i = 0; i < pesanAsli.length; i++){
+        hasil += emoji[Math
